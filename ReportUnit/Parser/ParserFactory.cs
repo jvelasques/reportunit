@@ -115,7 +115,7 @@ namespace ReportUnit.Parser
         private bool ValidateJUnitXsd(XmlDocument doc)
         {
             XmlSchemaSet schema = new XmlSchemaSet();
-            using (var file = new FileStream(@"Schemas\junit.xsd", FileMode.Open))
+            using (var file = new FileStream(Program.EXE_LOCATION + @"\Schemas\junit.xsd", FileMode.Open))
             {
                 schema.Add("", XmlReader.Create(file));
 

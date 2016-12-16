@@ -30,6 +30,8 @@ namespace ReportUnit
         /// </summary>
         private static Logger _logger = Logger.GetLogger();
 
+        public static string EXE_LOCATION = AppDomain.CurrentDomain.BaseDirectory;
+
         /// <summary>
         /// Entry point
         /// </summary>
@@ -72,7 +74,7 @@ namespace ReportUnit
                     if (!Directory.GetParent(args[1]).Exists)
                         Directory.CreateDirectory(Directory.GetParent(args[1]).FullName);
 
-                    new ReportUnitService().CreateReport(args[0], Directory.GetParent(args[1]).FullName);
+                    new ReportUnitService().CreateReport(args[0], Directory.GetParent(args[1]).FullName, args[1]);
                     return;
                 }
 

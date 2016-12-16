@@ -23,7 +23,7 @@ namespace ReportUnit
 
         public ReportUnitService() { }
 
-        public void CreateReport(string input, string outputDirectory)
+        public void CreateReport(string input, string outputDirectory, string outputName = null)
         {
             var attributes = File.GetAttributes(input);
             IEnumerable<FileInfo> filePathList;
@@ -72,7 +72,12 @@ namespace ReportUnit
                 report.SideNavLinks = compositeTemplate.SideNavLinks;
 
                 var html = Engine.Razor.RunCompile(Templates.TemplateManager.GetFileTemplate(), "report", typeof(Model.Report), report, null);
-                File.WriteAllText(Path.Combine(outputDirectory, report.FileName + ".html"), html);
+
+                var htmlName = outputName != null ? outputName : report.FileName;
+                htmlName = htmlName.Replace(":", "-"); // because the hours come with :, this will change
+                htmlName = htmlName.EndsWith(".html") ? htmlName : htmlName + ".html";
+
+                File.WriteAllText(Path.Combine(outputDirectory, htmlName), html);
             }
         }
 

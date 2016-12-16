@@ -1,4 +1,4 @@
-@using ReportUnit.Model
+﻿@using ReportUnit.Model
 @inherits RazorEngine.Templating.TemplateBase<Report>
 <!DOCTYPE html>
 <html lang='en'>
@@ -197,6 +197,7 @@
                                                             {
                                                                 <th>StatusMessage</th>
                                                             }
+                                                            <th>Rerun</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -247,6 +248,9 @@
                                                                         <td class='grey lighten-4'></td>
                                                                     }
                                                                 }
+                                                                <td class='ADD-RERUN-CLASS'>
+                                                                    <button onclick="alert('not implemented yet')" class='ADD-RERUN-CLASS'>&#4042;</button>
+                                                                </td>
                                                                 <td class='test-features hide @test.GetCategories()'></td>
                                                             </tr>
                                                         }

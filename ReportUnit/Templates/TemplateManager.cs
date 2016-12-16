@@ -6,12 +6,12 @@ namespace ReportUnit.Templates
     {
         public static string GetSummaryTemplate()
         {
-            return GetEncodedResource(@"..\Templates\Summary.cshtml");
+            return GetEncodedResource(Program.EXE_LOCATION + @"\Templates\Summary.cshtml");
         }
 
         public static string GetFileTemplate()
         {
-            return GetEncodedResource(@"..\Templates\File.cshtml");
+            return GetEncodedResource(Program.EXE_LOCATION + @"\Templates\File.cshtml");
         }
 
         private static string GetEncodedResource(string path)
